@@ -1,0 +1,512 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "error.data.corrupted" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Returned data is corrupted or incomplete."
+          }
+        },
+        "my" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ပြန်လာသော ဒေတာ ပျက်စီးနေခြင်း သို့မဟုတ် မပြည့်စုံပါ။"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "返回数据损坏或不完整。"
+          }
+        }
+      }
+    },
+    "error.data.decoding" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Data decoding failed."
+          }
+        },
+        "my" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ဒေတာ ကုဒ်ဖြေခြင်း မအောင်မြင်ပါ။"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "数据解码失败。"
+          }
+        }
+      }
+    },
+    "error.data.encoding" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Data encoding failed."
+          }
+        },
+        "my" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ဒေတာ ကုဒ်သွင်းခြင်း မအောင်မြင်ပါ။"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "数据编码失败。"
+          }
+        }
+      }
+    },
+    "error.data.jsonInvalid" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invalid JSON format."
+          }
+        },
+        "my" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "JSON ဖွဲ့စည်းပုံ မမှန်ကန်ပါ"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "JSON格式无效。"
+          }
+        }
+      }
+    },
+    "error.network.connectionLost" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Network connection lost. Please retry."
+          }
+        },
+        "my" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ကွန်ရက်ချိတ်ဆက်မှု ပြတ်တောက်သွားပါသည်။ ထပ်မံကြိုးစားပေးပါ။"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "网络连接中断，请重新尝试。"
+          }
+        }
+      }
+    },
+    "error.network.dns" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DNS resolution failed. Please check your connection."
+          }
+        },
+        "my" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DNS ဖြေရှင်းခြင်း မအောင်မြင်ပါ။ သင့်ရဲ့ ချိတ်ဆက်မှုကို စစ်ဆေးပေးပါ။"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DNS解析失败，请检查网络连接。"
+          }
+        }
+      }
+    },
+    "error.network.ssl" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SSL secure connection failed."
+          }
+        },
+        "my" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SSL လုံခြုံရေး ချိတ်ဆက်မှု မအောင်မြင်ပါ။"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SSL安全连接失败。"
+          }
+        }
+      }
+    },
+    "error.network.timeout" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Network request timed out. Please try again later."
+          }
+        },
+        "my" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ကွန်ရက်တောင်းဆိုမှု အချိန်အကန့်အသတ်ကျော်သွားပါသည်။ နောက်မှထပ်ကြိုးစားပေးပါ။"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "网络请求超时，请稍后重试。"
+          }
+        }
+      }
+    },
+    "error.network.unavailable" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No internet connection. Please check your network settings."
+          }
+        },
+        "my" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "အင်တာနက်ချိတ်ဆက်မှု မရှိပါ။ သင့်ရဲ့ ကွန်ရက်ချိတ်ဆက်မှုကို စစ်ဆေးပေးပါ။"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "网络连接不可用，请检查网络设置。"
+          }
+        }
+      }
+    },
+    "error.request.cancelled" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Request was cancelled."
+          }
+        },
+        "my" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "တောင်းဆိုမှု ပယ်ဖျက်လိုက်ပါသည်။"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请求已取消。"
+          }
+        }
+      }
+    },
+    "error.request.invalid" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invalid request parameters."
+          }
+        },
+        "my" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "တောင်းဆိုချက် ပါရာမီတာများ မမှန်ကန်ပါ။"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请求参数无效。"
+          }
+        }
+      }
+    },
+    "error.request.timeout" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Request timed out. Please try again later."
+          }
+        },
+        "my" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "တောင်းဆိုမှု အချိန်အကန့်အသတ်ကျော်သွားပါသည်။ နောက်မှထပ်ကြိုးစားပေးပါ။"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "网络请求超时，请稍后重试。"
+          }
+        }
+      }
+    },
+    "error.response.forbidden" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Access forbidden. Please check your login status."
+          }
+        },
+        "my" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "၀င်ရောက်ခွင့် တားမြစ်ထားပါသည်။ သင့်ရဲ့ အကောင့်၀င်ရောက်မှုအခြေအနေကို စစ်ဆေးပေးပါ။"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "访问被禁止，请检查登录状态。"
+          }
+        }
+      }
+    },
+    "error.response.http" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HTTP protocol error."
+          }
+        },
+        "my" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HTTP ပရိုတိုကော အမှား။"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HTTP协议错误。"
+          }
+        }
+      }
+    },
+    "error.response.invalid" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invalid server response."
+          }
+        },
+        "my" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "မမှန်ကန်သော ဆာဗာတုံ့ပြန်ချက်။"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无效的服务器响应。"
+          }
+        }
+      }
+    },
+    "error.response.notFound" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The requested resource was not found."
+          }
+        },
+        "my" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "တောင်းဆိုထားသော အရင်းအမြစ်ကို ရှာမတွေ့ပါ။"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请求的资源未找到。"
+          }
+        }
+      }
+    },
+    "error.response.server" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Internal server error. Please try again later."
+          }
+        },
+        "my" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ဆာဗာ အတွင်း အမှား ဖြစ်ပွားပါသည်။ နောက်မှ ပြန်ကြိုးစားပါ။"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "服务器内部错误，请稍后重试。"
+          }
+        }
+      }
+    },
+    "error.response.serviceUnavailable" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Service temporarily unavailable. Please try again later."
+          }
+        },
+        "my" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "၀န်ဆောင်မှု ယာယီအားဖြင့် မရနိုင်ပါ။ နောက်မှထပ်ကြိုးစားပေးပါ။"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "服务暂时不可用，请稍后重试。"
+          }
+        }
+      }
+    },
+    "error.response.unauthorized" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your session has expired. Please log in again."
+          }
+        },
+        "my" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ဆက်သွယ်မှု သက်တမ်းကုန်သွားပါသည်။ ထပ်မံ၀င်ရောက်ပေးပါ။"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "会话已过期，请重新登录。"
+          }
+        }
+      }
+    },
+    "error.unknown" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An unknown error occurred. Please try again later."
+          }
+        },
+        "my" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "မသိသော အမှားတစ်ခု ဖြစ်ပွားခဲ့ပါသည်။ နောက်မှထပ်ကြိုးစားပေးပါ။"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "发生未知错误，请稍后重试。"
+          }
+        }
+      }
+    },
+    "error.url.invalid" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invalid request URL."
+          }
+        },
+        "my" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "မမှန်ကန်သော တောင်းဆိုမှု URL။"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无效的请求URL。"
+          }
+        }
+      }
+    },
+    "error.url.malformed" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Malformed request URL."
+          }
+        },
+        "my" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ဖွဲ့စည်းပုံမမှန်သော တောင်းဆိုမှု URL။"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "URL格式错误。"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.1"
+}
