@@ -45,6 +45,7 @@ public actor APIClient {
         // 构建 Request
         var req = URLRequest(url: url)
         req.httpMethod = method
+        req.timeoutInterval = config.requestTimeout
         req.setValue("application/json", forHTTPHeaderField: "Content-Type")
         config.defaultHeaders.forEach { req.setValue($1, forHTTPHeaderField: $0) }
         headers?.forEach { req.setValue($1, forHTTPHeaderField: $0) }
