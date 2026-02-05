@@ -114,7 +114,10 @@ public actor APIClient {
                     throw APIClientError.response(code, statusCode: httpResponse.statusCode, data: data)
                 }
                 
-                return try JSONDecoder().safeDecode(T.self, from: data)
+                let decoder = JSONDecoder()
+                decoder.dateDecodingStrategy = .iso8601
+                
+                return try decoder.safeDecode(T.self, from: data)
                 
             } catch let urlError as URLError {
                 let code: APIClientErrorCode
