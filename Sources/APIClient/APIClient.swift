@@ -227,6 +227,20 @@ public actor APIClient {
         )
     }
     
+    /// Builds and returns an authenticated URLRequest without sending it.
+    /// Applies all registered request interceptors (e.g. auth headers).
+    public func makeRequest(
+        endpoint: String,
+        method: HTTPMethod = .GET,
+        headers: [String: String]? = nil
+    ) async throws -> URLRequest {
+        var request = try buildRequest(endpoint: endpoint, method: method.rawValue, headers: headers, body: nil)
+        for interceptor in reqInterceptors {
+            request = try await interceptor.intercept(request)
+        }
+        return request
+    }
+
     public func head(
         url: String,
         headers: [String: String]? = nil
