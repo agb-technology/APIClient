@@ -53,6 +53,33 @@ public actor APIClient {
         return req
     }
     
+    // Connection-level failures that arrive with NO server response — most often a
+    // keep-alive socket the server closed while idle, then handed back from the pool
+    // (URLSession.shared reuses connections across requests). The first attempt fails
+    // and evicts the dead connection, so an immediate retry opens a fresh one. These
+    // never reflect a processed request, so retrying is safe.
+    private static func isRetriableConnectionError(_ error: URLError) -> Bool {
+        switch error.code {
+        case .timedOut, .networkConnectionLost, .cannotConnectToHost, .cannotFindHost:
+            return true
+        default:
+            return false
+        }
+    }
+
+    // Performs the network call, retrying once on a connection-level failure for
+    // idempotent methods only (so a POST is never silently re-sent). Fixes the
+    // "first request fast, next request after an idle gap hangs to timeout" symptom
+    // caused by reusing a server-closed keep-alive connection.
+    private func sendData(for request: URLRequest, method: HTTPMethod) async throws -> (Data, URLResponse) {
+        do {
+            return try await session.data(for: request)
+        } catch let urlError as URLError where method.isIdempotent
+            && Self.isRetriableConnectionError(urlError) {
+            return try await session.data(for: request)
+        }
+    }
+
     // 请求方法
     private func send<T: Decodable>(
         endpoint: String,
@@ -79,7 +106,7 @@ public actor APIClient {
             
             do {
                 // 发送请求
-                var (data, response) = try await session.data(for: request)
+                var (data, response) = try await sendData(for: request, method: method)
                 
                 // 日志
                 log(req: request, resp: response, data: data)
