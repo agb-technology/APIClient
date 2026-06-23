@@ -11,15 +11,20 @@ public struct APIClientConfig: Sendable {
     public let baseURL: String
     public let defaultHeaders: [String: String]
     public let requestTimeout: TimeInterval
-    
+    /// Which fields the debug logger prints. Defaults to everything; pass a subset
+    /// to narrow it (e.g. `[.method, .url, .statusCode]`) or `[]` to silence it.
+    public let logOptions: APILogOptions
+
     public init(
         baseURL: String,
         defaultHeaders: [String: String] = [:],
-        requestTimeout: TimeInterval = 30
+        requestTimeout: TimeInterval = 30,
+        logOptions: APILogOptions = .all
     ) {
         self.baseURL = baseURL
         self.defaultHeaders = defaultHeaders
         self.requestTimeout = requestTimeout
+        self.logOptions = logOptions
     }
 }
 

@@ -79,10 +79,12 @@ public actor APIClient {
             
             do {
                 // 发送请求
+                let startTime = DispatchTime.now()
                 var (data, response) = try await session.data(for: request)
-                
+                let durationMs = Double(DispatchTime.now().uptimeNanoseconds - startTime.uptimeNanoseconds) / 1_000_000
+
                 // 日志
-                log(req: request, resp: response, data: data)
+                log(req: request, resp: response, data: data, durationMs: durationMs)
                 
                 // 响应拦截器 (e.g. 401 刷新 + 重试)
                 for interceptor in respInterceptors {
@@ -240,7 +242,7 @@ public actor APIClient {
         }
         return request
     }
-
+    
     public func head(
         url: String,
         headers: [String: String]? = nil
@@ -274,36 +276,62 @@ public actor APIClient {
         }
     }
     
-    private func log(req: URLRequest, resp: URLResponse, data: Data) {
+    private func log(req: URLRequest, resp: URLResponse, data: Data, durationMs: Double) {
 #if DEBUG
-        if let httpResponse = resp as? HTTPURLResponse {
+        let options = config.logOptions
+        guard !options.isEmpty, let httpResponse = resp as? HTTPURLResponse else { return }
+
+        // Collect only the enabled request rows.
+        var requestRows: [String] = []
+        if options.contains(.method) {
+            requestRows.append("Method: \(req.httpMethod ?? "--")")
+        }
+        if options.contains(.url) {
+            requestRows.append("URL: \(req.url?.absoluteString ?? "--")")
+        }
+        if options.contains(.requestHeader) {
+            requestRows.append("Request Header: \(req.allHTTPHeaderFields ?? [:])")
+        }
+        if options.contains(.requestBody) {
             var bodyString = "--"
             if let body = req.httpBody {
                 bodyString = String(data: body, encoding: .utf8) ?? "[binary data]"
             }
-            
-//            print("""
-//                📌 [APIClient]
-//                ├─ Request:
-//                │  ├─ Method: \(req.httpMethod ?? "--") 
-//                │  ├─ URL: \(req.url?.absoluteString ?? "--")
-//                │  ├─ Request Header: \(req.allHTTPHeaderFields ?? [:])
-//                │  └─ Request Body: \(bodyString)                
-//                └─ Response:
-//                   └─  Status Code: \(httpResponse.statusCode)
-//                \(data.prettyPrintedJSONString)
-//                """)
-            
-            print("""
-                📌 [APIClient]
-                ├─ Request:
-                │  ├─ Method: \(req.httpMethod ?? "--") 
-                │  ├─ URL: \(req.url?.absoluteString ?? "--")
-                └─ Response:
-                   └─  Status Code: \(httpResponse.statusCode)
-                """)
-            //
+            requestRows.append("Request Body: \(bodyString)")
         }
+
+        // Collect only the enabled response rows.
+        var responseRows: [String] = []
+        if options.contains(.statusCode) {
+            responseRows.append("Status Code: \(httpResponse.statusCode)")
+        }
+        if options.contains(.duration) {
+            responseRows.append(String(format: "Duration: %.0f ms", durationMs))
+        }
+
+        let hasResponseSection = !responseRows.isEmpty || options.contains(.responseBody)
+
+        var lines = ["📌 [APIClient]"]
+        if !requestRows.isEmpty {
+            // Use └─ for the Request branch when no Response section follows it.
+            lines.append("\(hasResponseSection ? "├─" : "└─") Request:")
+            let childPrefix = hasResponseSection ? "│  " : "   "
+            for (index, row) in requestRows.enumerated() {
+                let connector = index == requestRows.count - 1 ? "└─" : "├─"
+                lines.append("\(childPrefix)\(connector) \(row)")
+            }
+        }
+        if hasResponseSection {
+            lines.append("└─ Response:")
+            for (index, row) in responseRows.enumerated() {
+                let connector = index == responseRows.count - 1 ? "└─" : "├─"
+                lines.append("   \(connector) \(row)")
+            }
+            if options.contains(.responseBody) {
+                lines.append(data.prettyPrintedJSONString)
+            }
+        }
+        print(lines.joined(separator: "\n"))
 #endif // DEBUG
     }
 }
